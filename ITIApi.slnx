@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="ITIApi.DAL/ITIApi.DAL.csproj" />
+  <Project Path="ITIApi/ITIApi.csproj" />
+</Solution>
