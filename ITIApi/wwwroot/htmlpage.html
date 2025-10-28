@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h1>Hello World</h1>
+
+
+    <script>
+        async function GetStudent() {
+            var result = await fetch(
+                `https://localhost:44373/api/Student/GetById?id=2`
+            );
+            var result2 = await result.json();
+            console.log(result2);
+            var finalResult = JSON.stringify(result2);
+
+            alert(finalResult);
+        }
+        GetStudent();
+    </script>
+</body>
+</html>
