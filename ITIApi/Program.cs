@@ -23,6 +23,10 @@ namespace ITIApi
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("ApiDb"));
             });
+            builder.Services.AddDbContext<ITIContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("ItiDb"));
+            });
 
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen(c =>
@@ -34,6 +38,7 @@ namespace ITIApi
                     Description = "Example ASP.NET Core 9 API"
                 });
             });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
