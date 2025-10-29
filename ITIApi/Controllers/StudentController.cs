@@ -21,6 +21,8 @@ namespace ITIApi.Controllers
         }
 
         [HttpGet]
+        [EndpointSummary("Get All Students.")]
+        [ProducesResponseType(typeof(StudentDeptSupervisorDto), 200)]
         public IActionResult GetAll([FromQuery] string name = "", [FromQuery] int pageSize = 3, [FromQuery] int pageCount = 1)
         {
             var stds = Enumerable.Empty<Student>();
@@ -39,6 +41,9 @@ namespace ITIApi.Controllers
 
         }
 
+        [EndpointSummary("Get Student By His Id.")]
+        [ProducesResponseType(typeof(StudentDeptSupervisorDto), 200)]
+        [ProducesErrorResponseType(type: typeof(void))]
         [HttpGet("GetById")]
         public IActionResult GetById(int id)
         {
@@ -48,6 +53,11 @@ namespace ITIApi.Controllers
             //var std = context.Students.Include(S => S.Dept).Include(S => S.InverseStSuperNavigation).ToList();
             return Ok(mapper.Map<StudentDeptSupervisorDto>(student));
         }
+
+
+        [EndpointSummary("Delete Student By His Id.")]
+        [ProducesResponseType(typeof(void), 204)]
+        [ProducesErrorResponseType(type: typeof(void))]
         [HttpDelete]
         public IActionResult Delete(int id)
         {
@@ -57,6 +67,10 @@ namespace ITIApi.Controllers
             unit.Complete();
             return NoContent();
         }
+
+        [EndpointSummary("Update Student By His Id.")]
+        [ProducesResponseType(typeof(void), 204)]
+        [ProducesErrorResponseType(type: typeof(void))]
         [HttpPut]
         public IActionResult Edit(EditStudDto idItDto, int id)
         {

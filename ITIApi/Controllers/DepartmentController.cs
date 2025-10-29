@@ -19,6 +19,9 @@ namespace ITIApi.Controllers
             this.unit = unit;
             this.mapper = mapper;
         }
+
+        [EndpointSummary("Get All Departments.")]
+        [ProducesResponseType(typeof(DepartmentWithCountDto), 200)]
         [HttpGet]
         public IActionResult GetDepartments([FromQuery] string name = "", [FromQuery] int pageSize = 3, [FromQuery] int pageCount = 1)
         {
